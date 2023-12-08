@@ -17,17 +17,32 @@ function create_game(player_name='Player') {
 
     */
 
-    const create_board = () => {
+    let characters = ['X', 'O'];
+
+    const game_board = (function() {
 
         /*
 
-        Creates the game board
+        Creates and returns the game board
         with 9 spaces.
 
         */
 
         let board = new Array(9).fill('');
-        let characters = ['X', 'O'];
+        return {board};
+
+    })();
+
+    const display_board = () => {
+
+        /* 
+
+        Displays the game board in it's
+        current state.
+
+        */
+
+        console.log(game_board);
 
     }
 
@@ -69,7 +84,10 @@ function create_game(player_name='Player') {
         let player_character = assign_player_character();
         let player_winning_tally = 0;
         let player_losing_tally = 0;
+
+        return {name, player_character, player_winning_tally, player_losing_tally};
     }
 
+    return {game_board, assign_player_character, assign_computer_character, create_player};
 
 }
