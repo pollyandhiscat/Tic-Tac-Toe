@@ -33,19 +33,6 @@ function create_game(player_name='Player') {
 
     })();
 
-    const display_board = () => {
-
-        /* 
-
-        Displays the game board in it's
-        current state.
-
-        */
-
-        console.log(game_board);
-
-    }
-
     const assign_player_character = () => {
 
         /*
