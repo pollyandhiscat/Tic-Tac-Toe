@@ -33,7 +33,7 @@ function create_game(player_name='Player') {
 
     })();
 
-    const assign_player_character = () => {
+    const player_character = (function() {
 
         /*
 
@@ -42,11 +42,11 @@ function create_game(player_name='Player') {
 
         */
 
-        const player_character = characters[Math.floor(Math.random() * characters.length)];
+        return characters[Math.floor(Math.random() * characters.length)];
 
-    }
+    })();
 
-    const assign_computer_character = () => {
+    const computer_character = (function() {
 
         /*
 
@@ -55,11 +55,12 @@ function create_game(player_name='Player') {
 
         */
 
-        let player_selection = assign_player_character().player_character;
-        player_selection == 'X' ? computer_selection = 'O' : computer_selection = 'X';
-    }
+        player_character == 'X' ? computer_selection = 'O' : computer_selection = 'X';
+        return computer_selection;
 
-    const create_player = (player_name) => {
+    })();
+
+    const player = (function() {
 
         /*
 
@@ -68,13 +69,13 @@ function create_game(player_name='Player') {
         */
 
         let name = player_name;
-        let player_character = assign_player_character();
         let player_winning_tally = 0;
         let player_losing_tally = 0;
 
-        return {name, player_character, player_winning_tally, player_losing_tally};
-    }
+        return {name, player_winning_tally, player_losing_tally};
+        
+    })();
 
-    return {game_board, assign_player_character, assign_computer_character, create_player};
+    return {game_board, player_character, computer_character, player};
 
 }
