@@ -72,7 +72,7 @@ function create_game(player_name='Player') {
         let player_winning_tally = 0;
         let player_losing_tally = 0;
 
-        return {name, player_winning_tally, player_losing_tally};
+        return {name, player_character, player_winning_tally, player_losing_tally};
 
     })();
 
