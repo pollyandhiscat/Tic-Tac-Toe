@@ -29,7 +29,7 @@ function create_game(player_name='Player') {
         */
 
         let board = new Array(9).fill('');
-        return {board};
+        return board;
 
     })();
 
