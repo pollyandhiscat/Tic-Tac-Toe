@@ -76,6 +76,23 @@ function create_game(player_name='Player') {
 
     })();
 
-    return {game_board, player};
+    const computer = (function() {
+
+        /*
+
+        Creates the player.
+
+        */
+
+        let name = 'Mr. CPU';
+        let computer_winning_tally = 0;
+        let computer_losing_tally = 0;
+
+        return {name, computer_character, computer_winning_tally, computer_losing_tally};
+
+    })();
+
+
+    return {game_board, player, computer};
 
 }
