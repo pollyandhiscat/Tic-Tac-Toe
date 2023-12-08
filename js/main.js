@@ -76,6 +76,6 @@ function create_game(player_name='Player') {
 
     })();
 
-    return {game_board, player_character, computer_character, player};
+    return {game_board, player};
 
 }
