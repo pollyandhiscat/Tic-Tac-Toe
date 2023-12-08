@@ -80,7 +80,7 @@ function create_game(player_name='Player') {
 
         /*
 
-        Creates the player.
+        Creates the computer.
 
         */
 
