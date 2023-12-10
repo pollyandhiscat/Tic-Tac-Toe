@@ -89,7 +89,7 @@ function create_game(player_name = 'Player') {
 }
 
 
-function make_move(participant) {
+function make_move(participant, current_board) {
 
     /*
 
@@ -97,24 +97,29 @@ function make_move(participant) {
     and makes a move for them. If the player
     is making a move, manual entry of the move
     is given to the player. Otherwise the computer's
-    move will be a randomly selected square.
+    move will be a randomly selected square. Moves are
+    made on the supplied game board.
 
     */
 
     participant = participant['name'];
     participant_character = participant['character'];
 
+
     // Participant is computer.
     if (participant == 'Mr. CPU') {
 
-        let cpu_move = characters[Math.floor(Math.random() * game_board.length)];
+        let cpu_move = characters[Math.floor(Math.random() * current_board.length)];
 
         while (cpu_move != '') {
 
-            cpu_move = characters[Math.floor(Math.random() * game_board.length)]
+            cpu_move = characters[Math.floor(Math.random() * current_board.length)]
 
         }
 
+        // Fill in the computer move on the board.
+        current_board[cpu_move] = participant_character;
+        // May need to return the board here.
 
     }
 
@@ -122,9 +127,17 @@ function make_move(participant) {
     // Participant is player.
     else {
 
+        let player_move = prompt(`Make your move. Here is the current board: ${current_board}`);
+
+        while (player_move != '') {
+
+            player_move = prompt(`That space is taken. Choose another. Here is the current board: ${current_board}`);
+        }
+
+        // Fill in the player move on the board.
+        current_board[player_move] = participant_character;
 
     }
-
 
 }
 
@@ -160,14 +173,14 @@ function play_game(player_name) {
         // The player gets manual control over their move.
         if (current_turn == 'player') {
 
-            make_move(player);
+            make_move(player, board);
 
         }
 
         // The computer randomly picks an open box for its move.
         else {
 
-            make_move(computer);
+            make_move(computer, board);
         }
 
     }
