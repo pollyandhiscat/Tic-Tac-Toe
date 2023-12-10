@@ -1,4 +1,4 @@
-function create_game(player_name='Player') {
+function create_game(player_name = 'Player') {
 
     /*
 
@@ -10,7 +10,7 @@ function create_game(player_name='Player') {
 
     let characters = ['X', 'O'];
 
-    const game_board = (function() {
+    const game_board = (function () {
 
         /*
 
@@ -24,7 +24,7 @@ function create_game(player_name='Player') {
 
     })();
 
-    const player_character = (function() {
+    const player_character = (function () {
 
         /*
 
@@ -37,7 +37,7 @@ function create_game(player_name='Player') {
 
     })();
 
-    const computer_character = (function() {
+    const computer_character = (function () {
 
         /*
 
@@ -51,7 +51,7 @@ function create_game(player_name='Player') {
 
     })();
 
-    const player = (function() {
+    const player = (function () {
 
         /*
 
@@ -63,11 +63,11 @@ function create_game(player_name='Player') {
         let player_winning_tally = 0;
         let player_losing_tally = 0;
 
-        return {name, player_character, player_winning_tally, player_losing_tally};
+        return { name, player_character, player_winning_tally, player_losing_tally };
 
     })();
 
-    const computer = (function() {
+    const computer = (function () {
 
         /*
 
@@ -79,12 +79,12 @@ function create_game(player_name='Player') {
         let computer_winning_tally = 0;
         let computer_losing_tally = 0;
 
-        return {name, computer_character, computer_winning_tally, computer_losing_tally};
+        return { name, computer_character, computer_winning_tally, computer_losing_tally };
 
     })();
 
 
-    return {game_board, player, computer};
+    return { game_board, player, computer };
 
 }
 
@@ -102,12 +102,18 @@ function make_move(participant) {
     */
 
     participant = participant['name'];
+    participant_character = participant['character'];
 
     // Participant is computer.
     if (participant == 'Mr. CPU') {
 
-        let cpu_move = characters[Math.floor(Math.random() * game_board.length)]
+        let cpu_move = characters[Math.floor(Math.random() * game_board.length)];
 
+        while (cpu_move != '') {
+
+            cpu_move = characters[Math.floor(Math.random() * game_board.length)]
+
+        }
 
 
     }
@@ -131,6 +137,7 @@ function play_game(player_name) {
     let game_running = true;
     let turns = ['player', 'computer'];
     let current_turn = turns[0];
+    let moves = 0;
 
     const next_turn = () => {
 
@@ -140,16 +147,28 @@ function play_game(player_name) {
 
         */
 
-        current_turn == 'player' ? 'computer' : 'player';
+        moves == 0 || current_turn == 'computer' ? 'player' : 'computer';
         return current_turn;
 
     }
 
     while (game_running == true) {
 
+        current_turn = next_turn();
 
 
+        // The player gets manual control over their move.
+        if (current_turn == 'player') {
 
+            make_move(player);
+
+        }
+
+        // The computer randomly picks an open box for its move.
+        else {
+
+            make_move(computer);
+        }
 
     }
 
