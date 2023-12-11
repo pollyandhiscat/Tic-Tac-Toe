@@ -115,7 +115,7 @@ function make_move(participant, current_board) {
 
         while (cpu_position != '') {
 
-            cpu_move = current_board[Math.floor(Math.random() * current_board.length)]
+            cpu_move = Math.floor(Math.random() * current_board.length);
 
         }
 
@@ -172,7 +172,7 @@ function play_game(player_name) {
 
         current_turn = next_turn();
 
-        if (moves == 5) {
+        if (moves == 2) {
 
             return;
         }
