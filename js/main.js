@@ -110,7 +110,7 @@ function make_move(participant, current_board) {
     // Participant is computer.
     if (participant_name == 'Mr. CPU') {
 
-        let cpu_move = current_board[Math.floor(Math.random() * current_board.length)];
+        let cpu_move = [Math.floor(Math.random() * current_board.length)];
         let cpu_position = current_board[cpu_move];
 
         while (cpu_position != '') {
@@ -172,7 +172,7 @@ function play_game(player_name) {
 
         current_turn = next_turn();
 
-        if (moves == 2) {
+        if (moves == 5) {
 
             return;
         }
