@@ -102,8 +102,8 @@ function make_move(participant, current_board) {
 
     */
 
-    participant = participant['name'];
-    participant_character = participant['character'];
+    let participant_name = participant['name'];
+    let participant_character = participant['character'];
 
 
     // Participant is computer.
