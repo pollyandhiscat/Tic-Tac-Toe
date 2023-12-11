@@ -103,11 +103,12 @@ function make_move(participant, current_board) {
     */
 
     let participant_name = participant['name'];
-    let participant_character = participant['character'];
+    let participant_character = participant['player_character'];
+    participant_character == 'undefined' ? participant['computer_character'] : participant_character;
 
 
     // Participant is computer.
-    if (participant == 'Mr. CPU') {
+    if (participant_name == 'Mr. CPU') {
 
         let cpu_move = characters[Math.floor(Math.random() * current_board.length)];
         let cpu_position = current_board[cpu_move];
