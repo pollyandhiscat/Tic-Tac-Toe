@@ -110,8 +110,9 @@ function make_move(participant, current_board) {
     if (participant == 'Mr. CPU') {
 
         let cpu_move = characters[Math.floor(Math.random() * current_board.length)];
+        let cpu_position = current_board[cpu_move];
 
-        while (cpu_move != '') {
+        while (cpu_position != '') {
 
             cpu_move = characters[Math.floor(Math.random() * current_board.length)]
 
@@ -128,8 +129,9 @@ function make_move(participant, current_board) {
     else {
 
         let player_move = prompt(`Make your move. Here is the current board: ${current_board}`);
+        let player_position = current_board[player_move];
 
-        while (player_move != '') {
+        while (player_position != '') {
 
             player_move = prompt(`That space is taken. Choose another. Here is the current board: ${current_board}`);
         }
@@ -188,6 +190,4 @@ function play_game(player_name) {
 
 }
 
-let game1 = create_game('piddyadams');
-console.log(game1);
-console.log('');
+let game1 = play_game('piddyadams');
