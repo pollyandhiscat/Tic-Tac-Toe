@@ -171,11 +171,16 @@ function play_game(player_name) {
 
         current_turn = next_turn();
 
+        if (moves == 1) {
+
+            return;
+        }
 
         // The player gets manual control over their move.
         if (current_turn == 'player') {
 
             make_move(player, board);
+            moves += 1;
 
         }
 
@@ -183,6 +188,7 @@ function play_game(player_name) {
         else {
 
             make_move(computer, board);
+            moves += 1;
         }
 
     }
