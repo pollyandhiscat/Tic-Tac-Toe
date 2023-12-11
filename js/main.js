@@ -104,7 +104,7 @@ function make_move(participant, current_board) {
 
     let participant_name = participant['name'];
     let participant_character = participant['player_character'];
-    participant_character == 'undefined' ? participant['computer_character'] : participant_character;
+    participant_character == 'undefined' ? participant_character = participant['computer_character'] : participant_character = participant_character;
 
 
     // Participant is computer.
@@ -163,7 +163,7 @@ function play_game(player_name) {
 
         */
 
-        moves == 0 || current_turn == 'computer' ? 'player' : 'computer';
+        (moves == 0 || current_turn == 'computer') ? current_turn = 'player' : current_turn = 'computer';
         return current_turn;
 
     }
@@ -172,7 +172,7 @@ function play_game(player_name) {
 
         current_turn = next_turn();
 
-        if (moves == 1) {
+        if (moves == 5) {
 
             return;
         }
