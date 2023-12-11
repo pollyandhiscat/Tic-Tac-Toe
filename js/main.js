@@ -104,7 +104,7 @@ function make_move(participant, current_board) {
 
     let participant_name = participant['name'];
     let participant_character = participant['player_character'];
-    participant_character == 'undefined' ? participant_character = participant['computer_character'] : participant_character = participant_character;
+    participant_character === undefined ? participant_character = participant['computer_character'] : participant_character = participant_character;
 
 
     // Participant is computer.
