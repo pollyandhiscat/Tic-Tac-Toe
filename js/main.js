@@ -341,7 +341,14 @@ function play_game(player_name) {
 
             make_move(player, board);
             winner = check_for_winner();
-            // Function to add win info to participant / tally.
+
+            if (winner == player['name']) {
+
+                player_winning_tally += 1;
+                computer_losing_tally += 1;
+                return 'player_wins';
+            }
+
             moves += 1;
 
         }
@@ -351,7 +358,14 @@ function play_game(player_name) {
 
             make_move(computer, board);
             winner = check_for_winner();
-            // Function to add win info to participant / tally.
+            
+            if (winner == computer['name']) {
+
+                computer_winning_tally += 1;
+                player_losing_tally += 1;
+                return 'computer_wins';
+            }
+
             moves += 1;
         }
 
