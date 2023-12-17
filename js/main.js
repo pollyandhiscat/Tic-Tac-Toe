@@ -300,6 +300,32 @@ function play_game(player_name) {
 
         }
 
+        const check_if_board_full = () => {
+
+            /*
+
+            Returns 'true' if the board is full
+            and no more moves can be made.
+            Otherwise, 'false' is returned.
+
+            */
+            
+            current_item = '';
+
+            for (let index = 0; index < board.length; index++) {
+
+                current_item = board[index];
+
+                if (current_item != '') {
+
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
         let row_check = check_for_winner_by_row();
 
         if (row_check != '') {
@@ -404,5 +430,7 @@ The below code is for the handling of the webpage itself, such as button events,
 
 // button on click play the game.
 let game1 = play_game('piddyadams');
+
+
 
 
