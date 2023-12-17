@@ -382,9 +382,9 @@ function play_game(player_name) {
 
             if (winner == 'player') {
 
-                player_winning_tally += 1;
-                computer_losing_tally += 1;
-                return 'player_wins';
+                player['player_winning_tally'] ++;
+                computer['computer_losing_tally'] ++;
+                return {player, computer, 'winner': 'player'};
             }
 
             moves += 1;
@@ -398,14 +398,14 @@ function play_game(player_name) {
 
             if (winner == 'tie') {
 
-                return 'tie';
+                return {player, computer, 'winner': 'tie'};
             }
 
             if (winner == 'computer') {
 
-                computer_winning_tally += 1;
-                player_losing_tally += 1;
-                return 'computer_wins';
+                computer['computer_winning_tally'] ++;
+                player['player_losing_tally'] ++;
+                return {player, computer, 'winner': 'computer'};
             }
 
             moves += 1;
@@ -430,6 +430,14 @@ The below code is for the handling of the webpage itself, such as button events,
 
 // button on click play the game.
 let game1 = play_game('piddyadams');
+
+/* 
+The return from 'play_game' is an object which contains
+the player object, computer object, and a string representing the winner/tie
+with a key of 'winner'. These can be used to update the page itself
+with information on who won, lost, tally, etc.
+*/
+
 
 
 
