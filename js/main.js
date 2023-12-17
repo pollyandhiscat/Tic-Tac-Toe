@@ -380,7 +380,7 @@ function play_game(player_name) {
                 return 'tie';
             }
 
-            if (winner == player['name']) {
+            if (winner == 'player') {
 
                 player_winning_tally += 1;
                 computer_losing_tally += 1;
@@ -401,7 +401,7 @@ function play_game(player_name) {
                 return 'tie';
             }
 
-            if (winner == computer['name']) {
+            if (winner == 'computer') {
 
                 computer_winning_tally += 1;
                 player_losing_tally += 1;
