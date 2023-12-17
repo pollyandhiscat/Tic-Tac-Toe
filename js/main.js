@@ -322,6 +322,13 @@ function play_game(player_name) {
             return diagonal_check;
         }
 
+        // If the above checks fail to produce a winner and the board is full,
+        // it is considered a tie-game.
+        if (board.length == 9) {
+
+            winner = 'tie';
+        }
+
         return winner;
 
     }
@@ -342,6 +349,11 @@ function play_game(player_name) {
             make_move(player, board);
             winner = check_for_winner();
 
+            if (winner == 'tie') {
+
+                return 'tie';
+            }
+
             if (winner == player['name']) {
 
                 player_winning_tally += 1;
@@ -357,6 +369,11 @@ function play_game(player_name) {
 
             make_move(computer, board);
             winner = check_for_winner();
+
+            if (winner == 'tie') {
+
+                return 'tie';
+            }
 
             if (winner == computer['name']) {
 
