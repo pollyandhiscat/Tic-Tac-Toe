@@ -350,7 +350,7 @@ function play_game(player_name) {
 
         // If the above checks fail to produce a winner and the board is full,
         // it is considered a tie-game.
-        if (board.length == 9) {
+        if (check_if_board_full() == true) {
 
             winner = 'tie';
         }
