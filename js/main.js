@@ -308,7 +308,7 @@ function play_game(player_name) {
         }
 
 
-        let column_check = check_for_winner_by_row();
+        let column_check = check_for_winner_by_column();
 
         if (column_check != '') {
 
@@ -350,7 +350,6 @@ function play_game(player_name) {
             }
 
             moves += 1;
-
         }
 
         // The computer randomly picks an open box for its move.
@@ -358,7 +357,7 @@ function play_game(player_name) {
 
             make_move(computer, board);
             winner = check_for_winner();
-            
+
             if (winner == computer['name']) {
 
                 computer_winning_tally += 1;
@@ -373,4 +372,20 @@ function play_game(player_name) {
 
 }
 
+/*
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+/* 
+
+All of the above code is for handling the game itself.
+The below code is for the handling of the webpage itself, such as button events, styling, etc.
+
+*/
+
+
+// button on click play the game.
 let game1 = play_game('piddyadams');
+
+
