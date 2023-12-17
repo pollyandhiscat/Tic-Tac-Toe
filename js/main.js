@@ -340,6 +340,8 @@ function play_game(player_name) {
         if (current_turn == 'player') {
 
             make_move(player, board);
+            winner = check_for_winner();
+            // Function to add win info to participant / tally.
             moves += 1;
 
         }
@@ -348,6 +350,8 @@ function play_game(player_name) {
         else {
 
             make_move(computer, board);
+            winner = check_for_winner();
+            // Function to add win info to participant / tally.
             moves += 1;
         }
 
