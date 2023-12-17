@@ -264,12 +264,6 @@ function play_game(player_name) {
 
         }
 
-        [
-            x, x, x,
-            0, 0, 0,
-            x, x, x
-        ]
-
         const check_for_winner_by_diagonal = () => {
 
             /*
