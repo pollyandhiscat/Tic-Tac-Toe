@@ -363,11 +363,6 @@ function play_game(player_name) {
 
         current_turn = next_turn();
 
-        if (moves == 10) {
-
-            console.log(board);
-            return;
-        }
 
         // The player gets manual control over their move.
         if (current_turn == 'player') {
@@ -377,6 +372,7 @@ function play_game(player_name) {
 
             if (winner == 'tie') {
 
+                game_running = false;
                 return 'tie';
             }
 
@@ -384,7 +380,8 @@ function play_game(player_name) {
 
                 player['player_winning_tally'] ++;
                 computer['computer_losing_tally'] ++;
-                return {player, computer, 'winner': 'player'};
+                game_running = false;
+                return {player, computer, 'winner': 'player', board};
             }
 
             moves += 1;
@@ -398,14 +395,16 @@ function play_game(player_name) {
 
             if (winner == 'tie') {
 
-                return {player, computer, 'winner': 'tie'};
+                game_running = false;
+                return {player, computer, 'winner': 'tie', board};
             }
 
             if (winner == 'computer') {
 
                 computer['computer_winning_tally'] ++;
                 player['player_losing_tally'] ++;
-                return {player, computer, 'winner': 'computer'};
+                game_running = false;
+                return {player, computer, 'winner': 'computer', board};
             }
 
             moves += 1;
@@ -427,9 +426,10 @@ The below code is for the handling of the webpage itself, such as button events,
 
 */
 
-
 // button on click play the game.
+
 let game1 = play_game('piddyadams');
+console.log(game1);
 
 /* 
 The return from 'play_game' is an object which contains
@@ -438,6 +438,15 @@ with a key of 'winner'. These can be used to update the page itself
 with information on who won, lost, tally, etc.
 */
 
+/*
+
+[
+o,x,o,
+'','',x,
+'',x,o
+]
+
+*/
 
 
 
