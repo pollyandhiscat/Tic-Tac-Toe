@@ -309,7 +309,7 @@ function play_game(player_name) {
             Otherwise, 'false' is returned.
 
             */
-            
+
             current_item = '';
 
             for (let index = 0; index < board.length; index++) {
@@ -364,7 +364,6 @@ function play_game(player_name) {
 
         current_turn = next_turn();
 
-
         // The player gets manual control over their move.
         if (current_turn == 'player') {
 
@@ -379,10 +378,10 @@ function play_game(player_name) {
 
             if (winner == 'player') {
 
-                player['player_winning_tally'] ++;
-                computer['computer_losing_tally'] ++;
+                player['player_winning_tally']++;
+                computer['computer_losing_tally']++;
                 game_running = false;
-                return {player, computer, 'winner': 'player', board};
+                return { player, computer, 'winner': 'player', board };
             }
 
             moves += 1;
@@ -397,15 +396,15 @@ function play_game(player_name) {
             if (winner == 'tie') {
 
                 game_running = false;
-                return {player, computer, 'winner': 'tie', board};
+                return { player, computer, 'winner': 'tie', board };
             }
 
             if (winner == 'computer') {
 
-                computer['computer_winning_tally'] ++;
-                player['player_losing_tally'] ++;
+                computer['computer_winning_tally']++;
+                player['player_losing_tally']++;
                 game_running = false;
-                return {player, computer, 'winner': 'computer', board};
+                return { player, computer, 'winner': 'computer', board };
             }
 
             moves += 1;
@@ -413,9 +412,18 @@ function play_game(player_name) {
 
     }
 
+}
 
-    let result = check_for_winner();
-    console.log(result);
+function addGameResults(gameResult) {
+
+    /*
+
+    Updates the tracker of how many times
+    the player has lost/won and how many
+    times the computer has lost/won.
+
+    */
+
 
 }
 
@@ -430,7 +438,7 @@ The below code is for the handling of the webpage itself, such as button events,
 
 // button on click play the game.
 
-function createPlayGameButton () {
+function createPlayGameButton() {
 
     /*
 
@@ -443,18 +451,36 @@ function createPlayGameButton () {
     button.textContent = 'Play Game';
     button.addEventListener('click', () => {
 
-        play_game('player_1');
+        button.value = play_game('player_1');
+
+
 
     });
 
     return button;
-    
+
+}
+
+let wins = {
+
+    'player': 0,
+    'computer': 0,
+
+}
+
+let losses = {
+
+    'player': 0,
+    'computer': 0,
+
 }
 
 
 let appCanvas = document.getElementById('appCanvas');
 let playButton = createPlayGameButton();
 appCanvas.appendChild(playButton);
+
+
 //let game1 = play_game('piddyadams');
 //console.log(game1);
 
