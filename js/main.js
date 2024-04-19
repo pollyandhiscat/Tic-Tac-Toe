@@ -359,6 +359,7 @@ function play_game(player_name) {
 
     }
 
+    // The actual game is running in this block. Above are just definitions.
     while (game_running == true) {
 
         current_turn = next_turn();
@@ -412,14 +413,15 @@ function play_game(player_name) {
 
     }
 
+
+    let result = check_for_winner();
+    console.log(result);
+
 }
 
 /*
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
-*/
-
-
-/* 
 
 All of the above code is for handling the game itself.
 The below code is for the handling of the webpage itself, such as button events, styling, etc.
@@ -428,25 +430,44 @@ The below code is for the handling of the webpage itself, such as button events,
 
 // button on click play the game.
 
-let game1 = play_game('piddyadams');
-console.log(game1);
+function createPlayGameButton () {
 
-/* 
+    /*
+
+    Creates the button used to start
+    a game.
+
+    */
+
+    let button = document.createElement('button');
+    button.textContent = 'Play Game';
+    button.addEventListener('click', () => {
+
+        play_game('player_1');
+
+    });
+
+    return button;
+    
+}
+
+
+let appCanvas = document.getElementById('appCanvas');
+let playButton = createPlayGameButton();
+appCanvas.appendChild(playButton);
+//let game1 = play_game('piddyadams');
+//console.log(game1);
+
+
+/*
+
 The return from 'play_game' is an object which contains
 the player object, computer object, and a string representing the winner/tie
 with a key of 'winner'. These can be used to update the page itself
 with information on who won, lost, tally, etc.
-*/
-
-/*
-
-[
-o,x,o,
-'','',x,
-'',x,o
-]
 
 */
+
 
 
 
