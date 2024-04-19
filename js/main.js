@@ -424,7 +424,23 @@ function addGameResults(gameResult) {
 
     */
 
+    // No need to update anything.
+    if (gameResult == 'tie') {
 
+        return;
+    }
+
+    let winner = gameResult[3];
+
+    if (winner == 'computer') {
+
+        console.log('COMPUTER BBY!');
+    }
+
+    else {
+
+        console.log(winner + ' ' + 'BBY!');
+    }
 }
 
 /*
@@ -451,9 +467,8 @@ function createPlayGameButton() {
     button.textContent = 'Play Game';
     button.addEventListener('click', () => {
 
-        button.value = play_game('player_1');
-
-
+        let result = play_game('player_1');
+        addGameResults(result);
 
     });
 
@@ -475,24 +490,9 @@ let losses = {
 
 }
 
-
 let appCanvas = document.getElementById('appCanvas');
 let playButton = createPlayGameButton();
 appCanvas.appendChild(playButton);
-
-
-//let game1 = play_game('piddyadams');
-//console.log(game1);
-
-
-/*
-
-The return from 'play_game' is an object which contains
-the player object, computer object, and a string representing the winner/tie
-with a key of 'winner'. These can be used to update the page itself
-with information on who won, lost, tally, etc.
-
-*/
 
 
 
