@@ -414,35 +414,6 @@ function play_game(player_name) {
 
 }
 
-function addGameResults(gameResult) {
-
-    /*
-
-    Updates the tracker of how many times
-    the player has lost/won and how many
-    times the computer has lost/won.
-
-    */
-
-    // No need to update anything.
-    if (gameResult == 'tie') {
-
-        return;
-    }
-
-    let winner = gameResult[3];
-
-    if (winner == 'computer') {
-
-        console.log('COMPUTER BBY!');
-    }
-
-    else {
-
-        console.log(winner + ' ' + 'BBY!');
-    }
-}
-
 /*
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -468,7 +439,7 @@ function createPlayGameButton() {
     button.addEventListener('click', () => {
 
         let result = play_game('player_1');
-        addGameResults(result);
+        console.log(result);
 
     });
 
