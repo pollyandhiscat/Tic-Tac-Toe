@@ -423,8 +423,6 @@ The below code is for the handling of the webpage itself, such as button events,
 
 */
 
-// button on click play the game.
-
 function createPlayGameButton() {
 
     /*
@@ -439,7 +437,6 @@ function createPlayGameButton() {
     button.addEventListener('click', () => {
 
         let result = play_game('player_1');
-        console.log(result);
 
     });
 
@@ -447,23 +444,48 @@ function createPlayGameButton() {
 
 }
 
-let wins = {
+function add_game_controls() {
 
-    'player': 0,
-    'computer': 0,
+    /*
+
+    Add the game control UI elements
+    to the page.
+
+    */
+
+    let appCanvas = document.getElementById('appCanvas');
+    let playButton = createPlayGameButton();
+    appCanvas.appendChild(playButton);
+    return;
 
 }
 
-let losses = {
+function add_game_ui_elements(game_board, player, computer) {
 
-    'player': 0,
-    'computer': 0,
+    /*
 
-}
+    Adds the game UI elements to the page
+    including the game board and the winning/losing
+    tally for the player and the computer.
 
-let appCanvas = document.getElementById('appCanvas');
-let playButton = createPlayGameButton();
-appCanvas.appendChild(playButton);
+    */
+
+    let appCanvas = document.getElementById('appCanvas');
+
+    let board = document.createElement('p');
+    board.innerHTML = String(game_board);
+
+
+    appCanvas.appendChild(board);
+    return;
+
+} 
+
+
+add_game_controls();
+add_game_ui_elements();
+
+
 
 
 
