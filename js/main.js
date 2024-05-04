@@ -423,6 +423,19 @@ The below code is for the handling of the webpage itself, such as button events,
 
 */
 
+function get_app_canvas() {
+
+    /*
+
+    Returns the app canvas DOM object.
+
+    */
+
+    let app_canvas = document.getElementById('appCanvas');
+    return app_canvas;
+
+}
+
 function createPlayGameButton() {
 
     /*
@@ -437,6 +450,7 @@ function createPlayGameButton() {
     button.addEventListener('click', () => {
 
         let result = play_game('player_1');
+        return result;
 
     });
 
@@ -453,14 +467,14 @@ function add_game_controls() {
 
     */
 
-    let appCanvas = document.getElementById('appCanvas');
+    let appCanvas = get_app_canvas();
     let playButton = createPlayGameButton();
     appCanvas.appendChild(playButton);
     return;
 
 }
 
-function add_game_ui_elements(game_board, player, computer) {
+function add_game_ui_elements(game_information) {
 
     /*
 
@@ -470,24 +484,15 @@ function add_game_ui_elements(game_board, player, computer) {
 
     */
 
-    let appCanvas = document.getElementById('appCanvas');
+    let appCanvas = get_app_canvas();
 
     let board = document.createElement('p');
-    board.innerHTML = String(game_board);
-
+    
 
     appCanvas.appendChild(board);
     return;
 
 } 
 
-
 add_game_controls();
 add_game_ui_elements();
-
-
-
-
-
-
-
