@@ -1,3 +1,4 @@
+//
 function create_game(player_name = 'Player') {
 
     /*
@@ -487,6 +488,7 @@ function add_game_ui_elements(game_information) {
     let appCanvas = get_app_canvas();
 
     let board = document.createElement('p');
+    board.textContent = '<game board>';
     
 
     appCanvas.appendChild(board);
